@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#101114">
+<title>Arno 的手机</title>
+<style>
+:root{--bg:#101114;--muted:#8e8e93;--glass:rgba(255,255,255,.17);--line:rgba(255,255,255,.18);--green:#1db954;--yellow:#fee500}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans CJK SC",sans-serif;background:#08090b;color:#fff}button,input{font:inherit}button{border:0;cursor:pointer;color:inherit}.phone{position:relative;width:100%;height:100dvh;overflow:hidden;background:#171820;isolation:isolate}.wallpaper{position:absolute;inset:0;background:linear-gradient(145deg,#6b8198,#b6a8b9 48%,#293e4c);background-size:cover;background-position:center;z-index:-2}.wallpaper:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.2))}.status{position:absolute;top:env(safe-area-inset-top,0px);left:0;right:0;height:30px;padding:7px 25px 0;display:flex;justify-content:space-between;font-size:12px;font-weight:650;z-index:10;text-shadow:0 1px 5px #0008}.screen{position:absolute;inset:0;display:none;overflow:hidden}.screen.active{display:block}.lock{display:flex;flex-direction:column;align-items:center;padding-top:17vh;text-shadow:0 2px 12px #0006}.lock .date{font-size:17px;margin-bottom:7px}.lock .bigtime{font-size:78px;line-height:1;font-weight:250;letter-spacing:-3px}.lock .hint{position:absolute;bottom:100px;font-size:13px;color:#ffffffc9}.lock .unlock{position:absolute;bottom:32px;width:42px;height:5px;border-radius:9px;background:#fff}.lock .locknote{margin-top:28px;font-size:13px;color:#ffffffcc}.passbox{position:absolute;inset:0;background:rgba(12,14,20,.92);backdrop-filter:blur(30px);display:none;z-index:20;align-items:center;justify-content:center;flex-direction:column;padding:30px}.passbox.show{display:flex}.passbox h2{font-size:24px;margin:0 0 8px}.passbox p{color:#bbb;font-size:13px}.dots{display:flex;gap:13px;margin:25px}.dot{width:11px;height:11px;border:1px solid white;border-radius:50%}.dot.filled{background:white}.keypad{display:grid;grid-template-columns:repeat(3,72px);gap:12px}.key{height:58px;border-radius:50%;background:#ffffff20;font-size:24px}.key small{display:block;font-size:9px;letter-spacing:1px}.passerr{height:20px;color:#ff7777;font-size:12px}.home{padding:calc(env(safe-area-inset-top,0px) + 43px) 19px calc(env(safe-area-inset-bottom,0px) + 96px)}.widgets{display:grid;grid-template-columns:1fr 1fr;gap:10px}.widget{min-height:112px;border:1px solid #ffffff25;background:rgba(255,255,255,.18);backdrop-filter:blur(25px);border-radius:23px;padding:14px;box-shadow:0 8px 24px #0001}.widget .label{font-size:12px;color:#ffffffcc}.weather-temp{font-size:30px;font-weight:300;margin:5px 0}.widget .small{font-size:11px;color:#ffffffd6;line-height:1.7}.apps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:23px 10px;margin-top:34px}.app{min-width:0;text-align:center;background:none;padding:0;display:flex;flex-direction:column;align-items:center;gap:7px}.appicon{width:min(62px,16vw);height:min(62px,16vw);border-radius:17px;display:grid;place-items:center;font-size:29px;box-shadow:0 4px 12px #0002;position:relative;overflow:hidden}.appname{font-size:11px;text-shadow:0 1px 4px #0008;white-space:nowrap}.dock{position:absolute;left:15px;right:15px;bottom:calc(env(safe-area-inset-bottom,0px) + 13px);height:82px;border-radius:27px;background:#ffffff35;backdrop-filter:blur(30px);display:flex;justify-content:space-evenly;align-items:center;border:1px solid #ffffff35}.dock .appicon{width:53px;height:53px;border-radius:15px}.appicon.phone{background:linear-gradient(#6de18c,#20b958)}.appicon.kakao{background:#fee500;color:#291f00}.appicon.msg{background:linear-gradient(#6be8ff,#168bff)}.appicon.camera{background:linear-gradient(145deg,#dedede,#626875);color:#222}.appicon.youtube{background:#ff0033}.appicon.spotify{background:#161616;color:#1db954}.appicon.ig{background:radial-gradient(circle at 30% 110%,#ffdc80,#f77737 35%,#c13584 62%,#5851db)}.appicon.x{background:#090909}.appicon.photos{background:linear-gradient(135deg,#fff,#e6e6e6);color:#e95e72}.appicon.notes{background:linear-gradient(#fff 0 25%,#f6dc61 25%);color:#6d612c}.appicon.maps{background:linear-gradient(135deg,#9ee5a7,#4a8be8)}.appicon.settings{background:linear-gradient(135deg,#b7c0cd,#596475)}.appscreen{background:#f7f7f9;color:#111;overflow:auto;padding-top:calc(env(safe-area-inset-top,0px) + 36px);padding-bottom:42px}.appscreen.dark{background:#050505;color:#f7f7f7}.appscreen .navtitle{font-size:22px;font-weight:750;padding:10px 20px 16px}.homebar{position:absolute;z-index:15;bottom:calc(env(safe-area-inset-bottom,0px) + 7px);left:50%;transform:translateX(-50%);width:108px;height:5px;border-radius:10px;background:#fff;mix-blend-mode:difference;cursor:pointer}.appscreen:not(.dark)~.homebar{mix-blend-mode:normal;background:#111}.section{padding:0 20px}.muted{color:#888}.person{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #8882}.avatar{width:43px;height:43px;border-radius:50%;background:linear-gradient(135deg,#c6d6e6,#77869b);display:grid;place-items:center;color:#fff;font-weight:700;flex-shrink:0;overflow:hidden}.avatar img{width:100%;height:100%;object-fit:cover}.personinfo{flex:1;min-width:0}.personinfo strong{display:block;font-size:15px}.personinfo small{color:#888;font-size:12px}.callgroup{font-size:13px;color:#777;margin:20px 0 4px}.callrow{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #8882}.callrow .info{flex:1}.callrow .name{font-size:15px}.callrow .meta{font-size:12px;color:#888;margin-top:4px}.red{color:#e34b54}.tabs{position:absolute;bottom:26px;left:0;right:0;height:54px;border-top:1px solid #8882;background:#fafafa;display:flex;justify-content:space-around;align-items:center;color:#777;font-size:11px}.tabs span:first-child{color:#1688e8}.profile-top{padding:20px;text-align:center}.profile-top .avatar{width:86px;height:86px;margin:0 auto 12px;font-size:27px}.profile-top h2{margin:5px 0}.profile-top p{color:#999;font-size:13px}.chathead{height:54px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid #8882}.chathead button{background:none;color:#1688e8;font-size:24px}.chatlog{padding:15px 13px 85px;display:flex;flex-direction:column;gap:13px}.bubbleline{display:flex;justify-content:flex-end;align-items:flex-end;gap:5px}.bubble{max-width:78%;padding:10px 13px;border-radius:17px;background:var(--yellow);color:#222;font-size:14px;line-height:1.5;overflow-wrap:anywhere}.bmeta{font-size:10px;color:#888;white-space:nowrap}.chatinput{position:absolute;bottom:0;left:0;right:0;padding:10px 12px calc(env(safe-area-inset-bottom,0px) + 12px);background:#f6f6f6;display:flex;gap:8px}.chatinput input{flex:1;border:1px solid #ddd;border-radius:22px;padding:10px 14px;background:#fff;color:#222;min-width:0}.chatinput button{background:#fee500;color:#222;border-radius:18px;padding:0 16px;font-weight:700}.tweet{padding:16px;border-bottom:1px solid #292929;display:flex;gap:11px}.tweet .avatar{width:43px;height:43px}.tweetmain{min-width:0;flex:1}.tweethead{font-size:13px;color:#8d8d94;display:flex;flex-wrap:wrap;gap:5px}.tweethead strong{color:#fff}.tweetbody{font-size:14px;line-height:1.55;margin:8px 0 14px;white-space:pre-wrap;overflow-wrap:anywhere}.tweetstats{display:flex;justify-content:space-between;color:#888;font-size:11px;max-width:300px}.lockicon{font-size:11px}.igcall{background:#050505;color:white;text-align:center}.igcaller{position:absolute;top:19%;left:0;right:0;display:flex;align-items:center;flex-direction:column;gap:14px}.igavatar{width:112px;height:112px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#e8a0bd,#8065c9);font-size:37px;animation:breathe 2s ease-in-out infinite;overflow:hidden}.igavatar img{width:100%;height:100%;object-fit:cover}.igcaller .callname{font-size:25px;font-weight:650}.igcaller .sub{color:#bcbcc4;font-size:14px}.callstatus{color:#aaa;font-size:13px;margin-top:10px}@keyframes breathe{50%{transform:scale(1.06);box-shadow:0 0 0 15px #ffffff09}}.igbuttons{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 70px);left:0;right:0;display:flex;justify-content:center;gap:52px}.roundbtn{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-size:25px;background:#393940;color:white}.roundbtn.accept{background:#24c45b}.roundbtn.hang{background:#ff3b52}.igvideo{position:absolute;inset:0;background:#111;display:flex;align-items:center;justify-content:center}.igvideo video{width:100%;height:100%;object-fit:cover}.videohint{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:30px;color:#eee;background:linear-gradient(145deg,#1b1b26,#37303f)}.videohint strong{font-size:23px;display:block;margin-bottom:8px}.videohead{position:absolute;top:calc(env(safe-area-inset-top,0px) + 42px);left:18px;right:18px;display:flex;justify-content:space-between;text-shadow:0 1px 8px #000}.selfwindow{position:absolute;top:calc(env(safe-area-inset-top,0px) + 82px);right:14px;width:104px;height:145px;border-radius:18px;background:#37333d;overflow:hidden;touch-action:none;border:1px solid #ffffff55}.selfwindow video{width:100%;height:100%;object-fit:cover}.selfwindow .videohint{font-size:10px;padding:8px;background:linear-gradient(145deg,#403b48,#18181c)}.igchatoverlay{position:absolute;left:14px;bottom:150px;max-width:75%;display:flex;flex-direction:column;gap:7px;pointer-events:none}.igmsg{font-size:14px;color:#fff;text-shadow:0 1px 4px #000,0 1px 8px #000;padding:4px 0;transition:opacity .8s}.video-controls{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 74px);left:0;right:0;display:flex;justify-content:center;gap:17px}.video-controls .roundbtn{width:53px;height:53px;font-size:21px;background:#292a31dd}.video-controls .hang{background:#ff3b52}.ig-send{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);left:14px;right:14px;display:flex;gap:8px}.ig-send input{flex:1;min-width:0;border:1px solid #ffffff55;border-radius:24px;background:#ffffff25;color:white;padding:11px 15px;outline:none}.ig-send button{border-radius:50%;width:42px;background:#fff;color:#222}.spotifyhead{padding:18px 20px 0;text-align:center}.cover{width:min(58vw,230px);aspect-ratio:1;margin:0 auto 19px;background:linear-gradient(135deg,#283d34,#121815 65%,#425b4b);display:grid;place-items:center;font-size:68px;box-shadow:0 9px 24px #0006;border-radius:3px;overflow:hidden}.cover img{width:100%;height:100%;object-fit:cover}.spotifyhead h2{font-size:23px;margin:0 0 6px;text-align:left}.spotifyhead .creator{text-align:left;color:#aaa;font-size:12px}.spotifyactions{display:flex;align-items:center;gap:15px;padding:18px 20px}.spotifyactions button{background:none;color:#ccc;font-size:18px}.spotifyactions .playbig{margin-left:auto;background:var(--green);color:#07170c;width:52px;height:52px;border-radius:50%;font-size:23px}.songrow{display:flex;align-items:center;padding:12px 20px;gap:12px}.songrow .songtext{flex:1;min-width:0}.songrow .songtitle{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.songrow .artist{font-size:12px;color:#aaa;margin-top:4px}.songrow .dotsbtn{background:none;color:#aaa;font-size:20px}.songrow.active .songtitle{color:var(--green)}.mini-player{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);left:8px;right:8px;height:59px;background:#282e2a;border-radius:8px;display:flex;align-items:center;padding:7px 10px;gap:10px;z-index:8}.mini-cover{width:43px;height:43px;background:#3b5044;display:grid;place-items:center}.mini-cover img{width:100%;height:100%;object-fit:cover}.mini-info{flex:1;min-width:0}.mini-info strong,.mini-info small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mini-info strong{font-size:12px}.mini-info small{font-size:10px;color:#aaa;margin-top:3px}.mini-player button{background:none;font-size:22px}.progressline{position:absolute;bottom:0;left:0;height:2px;background:var(--green);width:0}.playerpage{padding:calc(env(safe-area-inset-top,0px) + 20px) 25px 40px;background:linear-gradient(#29382f,#090a09 65%);text-align:center}.playernav{display:flex;justify-content:space-between;align-items:center;font-size:13px}.playercover{width:min(78vw,340px);aspect-ratio:1;margin:7vh auto 35px;background:linear-gradient(135deg,#263c30,#101510);display:grid;place-items:center;font-size:75px;box-shadow:0 10px 40px #0008}.playercover img{width:100%;height:100%;object-fit:cover}.playername{text-align:left;font-size:24px;font-weight:750;overflow-wrap:anywhere}.playerartist{text-align:left;color:#aaa;margin-top:7px}.seek{width:100%;margin-top:28px;accent-color:#fff}.times{display:flex;justify-content:space-between;font-size:10px;color:#aaa}.playercontrols{display:flex;justify-content:space-between;align-items:center;margin-top:25px}.playercontrols button{background:none;font-size:23px}.playercontrols .mainplay{font-size:42px}.simplepage{padding:40px 22px;text-align:center}.simplepage .bigicon{font-size:60px;margin:35px}.toast{position:absolute;top:50px;left:50%;transform:translateX(-50%);padding:10px 16px;background:#222e;color:white;border-radius:20px;z-index:100;font-size:12px;white-space:nowrap}
+@media(min-width:600px){.phone{max-width:430px;max-height:920px;height:100dvh;margin:auto;border-left:1px solid #555;border-right:1px solid #555}.home{padding-left:24px;padding-right:24px}}
+</style>
+</head>
+<body>
+<div class="phone" id="phone">
+<div class="wallpaper" id="wallpaper"></div>
+<div id="disclaimerBanner" style="position:absolute;z-index:14;top:calc(env(safe-area-inset-top,0px) + 30px);left:10px;right:10px;text-align:center;font-size:9px;line-height:1.3;color:#ffffffcc;text-shadow:0 1px 3px #000;background:#0003;border-radius:8px;padding:4px;pointer-events:none">粉丝创作 · 非官方虚构模拟</div>
+<div class="status"><span id="statusTime">9:41</span><span>▮▮▮　Wi‑Fi　▰</span></div>
+<section class="screen lock active" id="lockScreen">
+<div class="date" id="lockDate"></div><div class="bigtime" id="lockTime">09:41</div><div class="locknote">Arno 的 iPhone</div>
+<div class="hint">向上轻扫以解锁</div><div class="unlock" id="unlockBar"></div>
+</section>
+<section class="passbox" id="passbox"><h2>输入密码</h2><p>输入密码以解锁 iPhone</p><div class="dots" id="dots"></div><div class="keypad" id="keypad"></div><div class="passerr" id="passerr"></div><button id="cancelPass" style="background:none;color:#ddd;margin-top:12px">取消</button></section>
+<section class="screen home" id="homeScreen">
+<div class="widgets"><div class="widget"><div class="label">天气 · <span id="weatherPlace"></span></div><div class="weather-temp"><span id="weatherTemp">--°</span> <span style="font-size:20px">☀</span></div><div class="small" id="weatherDesc"></div><div class="small" id="weatherRange"></div></div><div class="widget"><div class="label">日程</div><div id="eventsBox" class="small" style="margin-top:8px"></div></div></div>
+<div class="apps" id="appsGrid"></div>
+<div class="dock" id="dock"></div>
+</section>
+<section class="screen appscreen" id="phoneApp"><div class="navtitle">最近通话</div><div class="section" id="callsList"></div><div class="tabs"><span>◷ 最近通话</span><span>☆ 个人收藏</span><span>▦ 通讯录</span><span>⌨️ 拨号键盘</span></div></section>
+<section class="screen appscreen" id="kakaoApp"><div class="navtitle">친구</div><div class="section" id="kakaoFriends"></div></section>
+<section class="screen appscreen" id="profileApp"><div class="chathead"><button data-back="kakaoApp">‹</button><strong>프로필</strong></div><div class="profile-top"><div class="avatar" id="profileAvatar"></div><h2 id="profileName"></h2><p>오늘도 좋은 하루 🌿</p></div><div class="section" style="text-align:center;color:#888">사진　　음악　　상태 메시지</div></section>
+<section class="screen appscreen" id="chatApp"><div class="chathead"><button data-back="kakaoApp">‹</button><strong id="chatTitle"></strong></div><div class="chatlog" id="chatLog"></div><form class="chatinput" id="chatForm"><input id="chatInput" placeholder="메시지 입력" autocomplete="off"><button>发送</button></form></section>
+<section class="screen appscreen dark" id="xApp"><div class="navtitle">个人资料</div><div class="profile-top" style="text-align:left"><div class="avatar" id="xAvatar"></div><h2 id="xName"></h2><p id="xHandle"></p><p>🔒 此账号受保护</p><p id="xBio" style="color:#ddd">记录普通生活。</p></div><div id="tweetsList"></div></section>
+<section class="screen appscreen dark" id="igProfile"><div class="navtitle">Instagram · ald1.official</div><div style="padding:16px"><div style="display:flex;gap:16px;align-items:center"><div class="avatar" style="width:76px;height:76px;border-radius:50%;font-size:24px">ALD1</div><div><b>ALPHA DRIVE ONE</b><div style="font-size:12px;color:#aaa;margin-top:6px">1,265 帖子　2.6M 粉丝　0 关注</div></div></div><p style="font-size:12px;color:#ccc">ALPHA DRIVE ONE (알파드라이브원)<br>Digital Single 'Talk to me' OUT NOW</p><a href="https://www.instagram.com/ald1.official?obrf=MW9uMzlhcm5qcGJzcg==" target="_blank" rel="noopener" style="color:#8ab4f8">打开官方 Instagram ↗</a><div id="igPosts" style="display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:18px"></div></div></section>
+<section class="screen appscreen dark" id="igIncoming"><div class="igcaller"><div class="igavatar" id="igCallAvatar"></div><div class="callname" id="igCallerName"></div><div class="sub">Instagram 视频通话</div><div class="callstatus">来电中…</div></div><div class="igbuttons"><button class="roundbtn hang" id="igDecline" aria-label="挂断">✕</button><button class="roundbtn accept" id="igAccept" aria-label="接听">☎</button></div></section>
+<section class="screen appscreen dark" id="igVideo"><div class="igvideo" id="igMainVideo"><div class="videohint" id="igVideoHint"><div><strong>视频素材尚未设置</strong>请在 CONFIG.instagram.video 中填写你拥有的视频文件</div></div></div><div class="videohead"><div><strong id="igVideoName"></strong><div id="igTimer" style="font-size:12px;margin-top:4px">00:00</div></div><span>Instagram</span></div><div class="selfwindow" id="selfWindow"><div class="videohint" id="selfVideoHint">我的画面<br>请设置第二个视频文件</div></div><div class="igchatoverlay" id="igMessages"></div><div class="video-controls"><button class="roundbtn" id="flipBtn">↻</button><button class="roundbtn" id="micBtn">🎙</button><button class="roundbtn" id="camBtn">▣</button><button class="roundbtn hang" id="igHang">✕</button></div><form class="ig-send" id="igSendForm"><input id="igMessageInput" placeholder="发消息…"><button>➤</button></form></section>
+<section class="screen appscreen dark" id="spotifyApp"><div class="spotifyhead"><div class="cover" id="spotifyCover">♫</div><h2 id="playlistName">🎶</h2><div class="creator" id="playlistCreator">Arno · 1곡</div></div><div class="spotifyactions"><button id="downloadBtn">⇩</button><button id="shareBtn">↗</button><button id="moreBtn">•••</button><button class="playbig" id="playAll">▶</button><button id="shuffleBtn">⤨</button></div><div id="songList"></div><div class="mini-player" id="miniPlayer" style="display:none"><div class="mini-cover" id="miniCover">♫</div><div class="mini-info"><strong id="miniTitle"></strong><small id="miniArtist"></small></div><button id="miniToggle">Ⅱ</button><div class="progressline" id="miniProgress"></div></div></section>
+<section class="screen appscreen dark playerpage" id="playerPage"><div class="playernav"><button id="playerBack">⌄</button><span>正在播放</span><button id="playerMore">•••</button></div><div class="playercover" id="playerCover">♫</div><div class="playername" id="playerTitle"></div><div class="playerartist" id="playerArtist"></div><input class="seek" id="seek" type="range" min="0" max="180" value="0"><div class="times"><span id="elapsed">0:00</span><span id="duration">3:00</span></div><div class="playercontrols"><button id="repeatBtn">↻</button><button id="prevSong">|◀</button><button class="mainplay" id="playerToggle">▶</button><button id="nextSong">▶|</button><button id="playerShuffle">⤨</button></div></section>
+<section class="screen appscreen" id="simpleApp"><div class="navtitle" id="simpleTitle"></div><div class="simplepage"><div class="bigicon" id="simpleIcon"></div><div id="simpleText" style="color:#888"></div></div></section>
+<div class="homebar" id="homebar"></div>
+</div>
+<script>
+/* 所有可编辑内容集中在 CONFIG。未提供的图片、视频、音频均留空，不伪造文件路径。 */
+const CONFIG = {
+  wallpaper: "",
+  disclaimer: "粉丝创作 · 非官方模拟；聊天、通话、日程、天气与社交内容均为虚构或静态展示，不代表真实私人记录。",
+  userName: "ARNO",
+  contactName: "XIN",
+  twitterHandle: "@ALD1_official",
+  officialX: true,
+  chatsByContact: {
+    "炳fan": [{time:"2026-10-18 22:14",from:"them",text:"豪哥，你又忘记看手机了？🫡"},{time:"2026-10-20 19:42",from:"me",text:"刚结束练习，怎么了？"},{time:"2026-10-20 19:43",from:"them",text:"没事，问你吃不吃宵夜。"}],
+    "妈妈": [{time:"2026-10-16 08:12",from:"them",text:"家豪，记得按时吃饭，别总是练习到太晚。"},{time:"2026-10-16 08:20",from:"me",text:"知道啦妈妈，今天会早点吃饭。"}],
+    "经纪人A": [{time:"2026-10-21 09:05",from:"them",text:"家豪，今天 10:30 到练习室，出发前确认行程。"},{time:"2026-10-21 09:07",from:"me",text:"收到。"}],
+    "JUNSEO哥": [{time:"2026-10-19 21:17",from:"them",text:"아르노，明天的安排确认过了吗？早点休息。"},{time:"2026-10-19 21:19",from:"me",text:"确认了，哥你也早点休息。"}],
+    "LEO": [{time:"2026-10-20 23:01",from:"them",text:"르노ㅋㅋ 你是不是又把东西落在客厅了？"},{time:"2026-10-20 23:03",from:"me",text:"明天再找，别动我的东西ㅋㅋ"}],
+    "XIN": [{time:"2026-10-21 09:10",from:"them",text:"豪哥，差不多该出发去排练了🫡"},{time:"2026-10-21 09:12",from:"me",text:"好，安信，我马上下来。"}],
+    "B_xinglong": [{time:"2026-10-21 09:11",from:"them",text:"豪哥，按现在的时间再不走就会迟到。"},{time:"2026-10-21 09:12",from:"me",text:"知道了鑫隆，马上。"}],
+    "SANGWON_ee": [{time:"2026-10-17 20:30",from:"them",text:"豪哥，明天练习时间没变。"},{time:"2026-10-17 20:32",from:"me",text:"好，谢谢提醒。"}],
+    "SANGHYEON_ee": [{time:"2026-10-20 22:42",from:"them",text:"豪哥～你回来了没？我有事情想问你！"},{time:"2026-10-20 22:44",from:"me",text:"快到了，怎么啦？🫡"}]
+  },
+  weather: { place: "서울", temp: "18°", desc: "구름 조금", high: "21°", low: "13°" },
+  events: [
+    { time: "10:30", title: "연습실 이동" },
+    { time: "19:00", title: "저녁 약속" }
+  ],
+  calls: [
+    { group: "今天", items: [
+      { name: "炳fan", type: "未接", time: "23:08", count: "2" },
+      { name: "妈妈", type: "未接", time: "23:02", count: "1" },
+      { name: "经纪人A", type: "未接", time: "22:58", count: "3" },
+      { name: "JUNSEO哥", type: "未接", time: "22:51", count: "1" },
+      { name: "LEO", type: "未接", time: "22:47", count: "1" },
+      { name: "XIN", type: "未接", time: "22:40", count: "2" },
+      { name: "B_xinglong", type: "未接", time: "22:33", count: "1" },
+      { name: "SANGWON_ee", type: "未接", time: "22:25", count: "1" },
+      { name: "SANGHYEON_ee", type: "未接", time: "22:18", count: "1" },
+      { name: "经纪人A", type: "未接", time: "22:10", count: "1" }
+    ]}
+  ],
+  chat: [
+    { time: "22:12", text: "아르노야 어디야? 연락이 안 돼 🥺" },
+    { time: "22:14", text: "手机捡到了吗？ 혹시 내 폰 봤어?" },
+    { time: "22:17", text: "답장 좀 해줘. 걱정돼." },
+    { time: "22:20", text: "찾으면 꼭 연락해 줘!" }
+  ],
+  tweets: [
+    "[置顶] Digital Single 'Talk to me' OUT NOW ✨ #ALPHADRIVEONE #Talktome",
+    "2026.10.22 M COUNTDOWN 💙 Thank you for being with us! #ALD1",
+    "A little moment from today 📸 #ARNO #ALPHADRIVEONE"
+  ],
+  instagram: {
+    callerName: "XIN",
+    avatar: "",
+    video: "",
+    selfVideo: "",
+    messages: [
+      { from: "对方", text: "아르노야, 어디야? 진짜 걱정했어.", delay: 3 },
+      { from: "我", text: "나 지금 휴대폰을 찾고 있어. 잠깐만 기다려 줘.", delay: 7 },
+      { from: "对方", text: "괜찮아. 무사하면 됐어. 빨리 만나자.", delay: 12 },
+      { from: "我", text: "응, 곧 연락할게. 걱정하지 마 🤍", delay: 18 }
+    ]
+  },
+  spotify: {
+    cover: "",
+    playlistName: "🎶",
+    creator: "Arno",
+    songs: [
+      { title:"Didn't Stand A Chance", artist:"Travis Garland", audio:"", url:"https://open.spotify.com/search/Travis%20Garland%20Didn't%20Stand%20A%20Chance" },
+      { title:"Silver Guidance", artist:"Erik Sigurd", audio:"", url:"https://open.spotify.com/search/Erik%20Sigurd%20Silver%20Guidance" },
+      { title:"woman on the hills", artist:"Isaac Dunbar", audio:"", url:"https://open.spotify.com/search/Isaac%20Dunbar%20woman%20on%20the%20hills" },
+      { title:"No Reservations", artist:"Jesse Barrera", audio:"", url:"https://open.spotify.com/search/Jesse%20Barrera%20No%20Reservations" },
+      { title:"Obvious", artist:"Jesse Barrera / Jeremy Passion / Gabe Bondoc", audio:"", url:"https://open.spotify.com/search/Jesse%20Barrera%20Jeremy%20Passion%20Gabe%20Bondoc%20Obvious" },
+      { title:"Save This Love (Explicit)", artist:"Leroy Sanchez", audio:"", url:"https://open.spotify.com/search/Leroy%20Sanchez%20Save%20This%20Love" },
+      { title:"February Song", artist:"Melissa Polinar / John Splithoff", audio:"", url:"https://open.spotify.com/search/Melissa%20Polinar%20John%20Splithoff%20February%20Song" },
+      { title:"Value", artist:"Tori Kelly", audio:"", url:"https://open.spotify.com/search/Tori%20Kelly%20Value" },
+      { title:"Kiss", artist:"Prince And The Revolution", audio:"", url:"https://open.spotify.com/search/Prince%20And%20The%20Revolution%20Kiss" },
+      { title:"Confetti", artist:"Tori Kelly", audio:"", url:"https://open.spotify.com/search/Tori%20Kelly%20Confetti" },
+      { title:"Snow In California", artist:"Ariana Grande", audio:"", url:"https://open.spotify.com/search/Ariana%20Grande%20Snow%20In%20California" },
+      { title:"Valentina", artist:"Daniel Caesar", audio:"", url:"https://open.spotify.com/search/Daniel%20Caesar%20Valentina" },
+      { title:"LIMBO (Explicit)", artist:"keshi", audio:"", url:"https://open.spotify.com/search/keshi%20LIMBO" },
+      { title:"2 Much", artist:"Justin Bieber", audio:"", url:"https://open.spotify.com/search/Justin%20Bieber%202%20Much" },
+      { title:"Supermarket Flowers", artist:"Ed Sheeran", audio:"", url:"https://open.spotify.com/search/Ed%20Sheeran%20Supermarket%20Flowers" },
+      { title:"Lost In Japan", artist:"Shawn Mendes", audio:"", url:"https://open.spotify.com/search/Shawn%20Mendes%20Lost%20In%20Japan" }
+    ]
+  },
+  story: {
+    password: "0277",
+    incomingCallers: ["炳fan", "妈妈", "经纪人A", "JUNSEO哥", "XIN"],
+    initialMissedCalls: 10,
+    maxIncomingCalls: 5,
+    warningAfterAllMissed: true,
+    questions: [
+      { key: "found", title: "对方问：你捡到我的手机了吗？", options: [
+        { label: "是的，我捡到了", value: "yes" },
+        { label: "我在路上捡到的，先别急", value: "explain" },
+        { label: "不想告诉你", value: "refuse" }
+      ]},
+      { key: "where", title: "对方问：手机是在哪里丢的？", options: [
+        { label: "在练习室附近", value: "studio" },
+        { label: "在便利店附近", value: "store" },
+        { label: "我不想说", value: "refuse" }
+      ]},
+      { key: "return", title: "对方问：在哪里方便还给我？", options: [
+        { label: "约在附近咖啡店", value: "cafe" },
+        { label: "交给经纪人", value: "manager" },
+        { label: "暂时不打算归还", value: "refuse" }
+      ]},
+      { key: "method", title: "对方问：你打算怎么还给我？", options: [
+        { label: "当面交还", value: "meet" },
+        { label: "交给工作人员转交", value: "staff" },
+        { label: "我还没决定", value: "refuse" }
+      ]}
+    ]
+  }
+};
+
+const $ = id => document.getElementById(id);
+const screens = [...document.querySelectorAll('.screen')];
+let currentApp = 'lockScreen', passDigits = '', activeFriend = CONFIG.contactName, incomingCount = 0, missedIncoming = 0, storyQuestion = 0, storyRefused = false, callLog = [], currentCallName = '', callStage = 'idle';
+const CHAT_STORAGE_KEY='arno_ttk_chats_v2';
+try{const saved=JSON.parse(localStorage.getItem(CHAT_STORAGE_KEY)||'null');if(saved&&typeof saved==='object')Object.keys(CONFIG.chatsByContact).forEach(n=>{if(Array.isArray(saved[n]))CONFIG.chatsByContact[n]=saved[n];});}catch(e){}
+function saveChats(){try{localStorage.setItem(CHAT_STORAGE_KEY,JSON.stringify(CONFIG.chatsByContact));}catch(e){}}
+let callTimer = null, callSeconds = 0, igMessageTimers = [], songIndex = -1, songPlaying = false, songTime = 0, songDuration = 180, songTick = null, audioEl = null, shuffled = false, repeat = false;
+function showScreen(id){screens.forEach(s=>s.classList.remove('active'));$(id).classList.add('active');currentApp=id;const d=$('disclaimerBanner');if(d)d.style.display='block';}
+function showToast(text){const t=document.createElement('div');t.className='toast';t.textContent=text;$('phone').appendChild(t);setTimeout(()=>t.remove(),2200)}
+function nowTime(){return new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit',hour12:false})}
+function updateClock(){const d=new Date();$('statusTime').textContent=d.toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit',hour12:false});$('lockTime').textContent=d.toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit',hour12:false});$('lockDate').textContent=d.toLocaleDateString('zh-CN',{month:'long',day:'numeric',weekday:'long'});}
+setInterval(updateClock,1000);updateClock();
+if(CONFIG.wallpaper){$('wallpaper').style.backgroundImage=`url("${CONFIG.wallpaper.replace(/"/g,'%22')}")`;}
+$('weatherPlace').textContent=CONFIG.weather.place;$('weatherTemp').textContent=CONFIG.weather.temp;$('weatherDesc').textContent=CONFIG.weather.desc;$('weatherRange').textContent=`最高 ${CONFIG.weather.high} · 最低 ${CONFIG.weather.low}`;
+$('eventsBox').innerHTML=CONFIG.events.slice(0,2).map(e=>`<div style="margin-bottom:5px"><b>${esc(e.time)}</b>　${esc(e.title)}</div>`).join('');
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+const appDefs=[
+ ['电话','☎','phoneApp','phone'],['KakaoTalk','●','kakaoApp','kakao'],['YouTube','▶','simpleApp','youtube'],['Spotify','♫','spotifyApp','spotify'],
+ ['Instagram','◎','igIncoming','ig'],['X','𝕏','xApp','x'],['相册','✿','simpleApp','photos'],['备忘录','▤','simpleApp','notes'],
+ ['地图','⌖','simpleApp','maps'],['设置','⚙','simpleApp','settings']
+];
+function makeApp(def){const [name,icon,target,cls]=def;const b=document.createElement('button');b.className='app';b.innerHTML=`<span class="appicon ${cls}">${icon}</span><span class="appname">${name}</span>`;b.onclick=()=>openApp(def);return b;}
+appDefs.slice(0,10).forEach(d=>$('appsGrid').appendChild(makeApp(d)));
+[['电话','☎','phoneApp','phone'],['KakaoTalk','●','kakaoApp','kakao'],['信息','●','simpleApp','msg'],['相机','◉','simpleApp','camera']].forEach(d=>$('dock').appendChild(makeApp(d)));
+function openApp(def){const [name,icon,target]=def;if(name==='Instagram'){renderInstagramProfile();showScreen('igProfile');return;}if(name==='Spotify'){renderSongs();showScreen('spotifyApp');return;}if(name==='电话'){renderCalls();showScreen(target);return;}if(name==='KakaoTalk'){renderFriends();showScreen(target);return;}if(name==='X'){renderTweets();showScreen(target);return;}if(target==='simpleApp'){$('simpleTitle').textContent=name;$('simpleIcon').textContent=icon;$('simpleText').textContent='此图标仅用于装饰';showScreen(target);return;}showScreen(target);}
+function unlockStart(){if(passDigits.length===0){$('passbox').classList.add('show');passDigits='';renderDots();}}
+function renderDots(){$('dots').innerHTML=Array.from({length:4},(_,i)=>`<span class="dot ${i<passDigits.length?'filled':''}"></span>`).join('');}
+for(let i=1;i<=9;i++){const b=document.createElement('button');b.className='key';b.textContent=i;b.onclick=()=>addDigit(String(i));$('keypad').appendChild(b);}
+const zero=document.createElement('button');zero.className='key';zero.textContent='0';zero.onclick=()=>addDigit('0');$('keypad').appendChild(zero);
+const del=document.createElement('button');del.className='key';del.textContent='⌫';del.onclick=()=>{passDigits=passDigits.slice(0,-1);renderDots()};$('keypad').appendChild(del);
+function addDigit(n){if(passDigits.length>=4)return;passDigits+=n;renderDots();if(passDigits.length===4){if(passDigits===CONFIG.story.password){setTimeout(()=>{$('passbox').classList.remove('show');showScreen('homeScreen');passDigits='';renderDots();showToast('已解锁');},160)}else{ $('passerr').textContent='密码不正确';setTimeout(()=>{passDigits='';renderDots();$('passerr').textContent='';},650)}}}
+$('cancelPass').onclick=()=>{$('passbox').classList.remove('show');passDigits='';renderDots()};
+let touchY=null;
+$('lockScreen').addEventListener('touchstart',e=>touchY=e.touches[0].clientY,{passive:true});
+$('lockScreen').addEventListener('touchend',e=>{if(touchY!==null&&touchY-e.changedTouches[0].clientY>35)unlockStart();touchY=null},{passive:true});
+let mouseY=null;$('lockScreen').addEventListener('mousedown',e=>mouseY=e.clientY);$('lockScreen').addEventListener('mouseup',e=>{if(mouseY!==null&&mouseY-e.clientY>35)unlockStart();mouseY=null});
+$('unlockBar').onclick=unlockStart;$('lockScreen').addEventListener('click',e=>{if(e.target.id!=='unlockBar')unlockStart()});
+$('homebar').onclick=()=>{if(currentApp==='igVideo'||currentApp==='igIncoming'){endInstagram();return;}if(currentApp==='playerPage'){showScreen('spotifyApp');return;}showScreen('homeScreen')};
+document.querySelectorAll('[data-back]').forEach(b=>b.onclick=()=>showScreen(b.dataset.back));
+function renderCalls(){const box=$('callsList');box.innerHTML='';CONFIG.calls.forEach(g=>{const h=document.createElement('div');h.className='callgroup';h.textContent=g.group;box.appendChild(h);g.items.forEach(c=>{const row=document.createElement('div');row.className='callrow';const missed=c.type==='未接';row.innerHTML=`<div style="font-size:21px;color:${missed?'#e34b54':'#777'}">${missed?'↙':'↗'}</div><div class="info"><div class="name ${missed?'red':''}">${esc(c.name||'未知联系人')} ${c.count&&Number(c.count)>1?`<span style="color:#888">(${esc(c.count)})</span>`:''}</div><div class="meta">${esc(c.type)} · ${esc(c.time)}</div></div><span style="color:#1688e8">ⓘ</span>`;box.appendChild(row);});});}
+function avatarHtml(name){return `<div class="avatar">${esc((name||'?').trim().slice(0,1))}</div>`;}
+function renderFriends(){const box=$('kakaoFriends');box.innerHTML=`<div class="person" id="myProfile" style="cursor:pointer">${avatarHtml(CONFIG.userName)}<div class="personinfo"><strong>${esc(CONFIG.userName)}</strong><small>내 프로필</small></div><span>›</span></div><div style="font-size:12px;color:#888;padding:18px 0 5px">친구 ${8}</div>`;const names=['炳fan','妈妈','经纪人A','JUNSEO哥','LEO','XIN','B_xinglong','SANGWON_ee','SANGHYEON_ee'];names.forEach(n=>{const row=document.createElement('div');row.className='person';row.style.cursor='pointer';row.innerHTML=`${avatarHtml(n)}<div class="personinfo"><strong>${esc(n)}</strong><small>${n==='XIN'?'오늘도 파이팅!':'안녕하세요 :)'}</small></div>`;row.onclick=()=>openChat(n);box.appendChild(row)});$('myProfile').onclick=()=>{$('profileAvatar').textContent=CONFIG.userName.slice(0,1);$('profileName').textContent=CONFIG.userName;showScreen('profileApp')};}
+function openChat(name){activeFriend=name;$('chatTitle').textContent=name;renderChat();showScreen('chatApp');}
+function renderChat(){const box=$('chatLog');box.innerHTML='';const messages=(CONFIG.chatsByContact&&CONFIG.chatsByContact[activeFriend])||CONFIG.chat;messages.forEach(m=>{const line=document.createElement('div');line.className='bubbleline';line.style.justifyContent=m.from==='them'?'flex-start':'flex-end';line.innerHTML=`<span class="bmeta">${esc(m.time||'')}</span><div class="bubble" style="background:${m.from==='them'?'#fff':'var(--yellow)'}">${esc(m.text)}</div>`;box.appendChild(line)});box.scrollTop=box.scrollHeight;}
+function addChatMessage(name,from,text){CONFIG.chatsByContact[name]=CONFIG.chatsByContact[name]||[];CONFIG.chatsByContact[name].push({time:nowTime(),from,text});saveChats();if(activeFriend===name&&currentApp==='chatApp')renderChat();}
+function replyOptions(name,text){const t=text.toLowerCase();const dance=/编舞|舞步|舞蹈|动作|忘记.*舞|忘了.*舞/.test(t);const lost=/捡手机|手机丢|手机不见|忘记.*编舞|忘了.*编舞/.test(t);
+ const bank={
+ 'XIN': dance?['豪哥……这是捡手机吗','ㅋㅋ 豪哥，你先别急，要不要我陪你过一遍？']:['豪哥，怎么了？','我在，慢慢说。'],
+ '炳fan': dance?['豪哥你怎么回事？？这都能忘啊ㅋㅋ','如果你也忘记真是出大事了。']:['豪哥ㅋㅋ 你认真的吗？','行吧，你先说说怎么回事。'],
+ '妈妈': ['家豪，别着急，慢慢来。','最近是不是太累了？记得休息。'],
+ '经纪人A': dance?['家豪，先确认明天排练安排。','我把排练视频发你，尽快复习。']:['收到。你具体需要什么帮助？'],
+ 'JUNSEO哥': dance?['아르노，先别急。放一遍音乐找找感觉。','需要的话，我可以陪你过一遍。']:['아르노，怎么了？','先说清楚情况，我们再处理。'],
+ 'LEO': dance?['르노？？？？你怎么回事ㅋㅋㅋ','如果你也忘记真是出大事了！']:['르노ㅋㅋ 真的假的？','你继续说，我听着呢。'],
+ 'B_xinglong': dance?['豪哥，你忘的是哪一段？先从副歌确认。','建议先看练习视频，不要盲目硬想。']:['豪哥，具体是什么情况？','先把问题说清楚。'],
+ 'SANGWON_ee': dance?['豪哥，明天排练前最好再确认一下。']:['嗯？怎么了，豪哥？'],
+ 'SANGHYEON_ee': dance?['豪哥！！！我给你跳一遍！','哥你别慌，我们一起复习就好！']:['豪哥～怎么啦？','我在听！你说！']
+ };
+ let arr=bank[name]||['嗯？怎么了？'];if(name==='XIN'&&/忘记.*编舞|忘了.*编舞|编舞.*忘/.test(t))arr=['豪哥……这是捡手机吗'];
+ return arr;
+}
+function scheduleAutoReply(name,text){const options=replyOptions(name,text);let count=Math.random()<.28?2:1; if(/编舞|舞步|排练/.test(text)&&Math.random()<.45)count=Math.min(2,options.length);const chosen=[...options].sort(()=>Math.random()-.5).slice(0,count);let delay=700+Math.random()*3000;chosen.forEach((reply,i)=>{delay+=i?900+Math.random()*2200:0;setTimeout(()=>{addChatMessage(name,'them',reply);},delay);});}
+$('chatForm').onsubmit=e=>{e.preventDefault();const input=$('chatInput'),text=input.value.trim();if(!text)return;addChatMessage(activeFriend,'me',text);input.value='';scheduleAutoReply(activeFriend,text);};
+function renderTweets(){$('xName').textContent=CONFIG.userName;$('xHandle').textContent=CONFIG.twitterHandle;$('xAvatar').textContent=CONFIG.userName.slice(0,1);$('tweetsList').innerHTML='';CONFIG.tweets.forEach((t,i)=>{const row=document.createElement('div');row.className='tweet';row.innerHTML=`${avatarHtml(CONFIG.userName)}<div class="tweetmain"><div class="tweethead"><strong>${esc(CONFIG.userName)}</strong><span>${esc(CONFIG.twitterHandle)}</span><span>· ${i+1}天</span><span class="lockicon">🔒</span></div><div class="tweetbody">${esc(t)}</div><div class="tweetstats"><span>♡ ${[12,8,23,6,15][i%5]}</span><span>↻ ${[2,1,4,0,3][i%5]}</span><span>▢ ${[4,2,7,1,5][i%5]}</span><span>♧</span></div></div>`;$('tweetsList').appendChild(row)});}
+function setVideo(containerId,hintId,src){const container=$(containerId);container.querySelectorAll('video').forEach(v=>v.remove());if(src){const v=document.createElement('video');v.src=src;v.autoplay=true;v.loop=true;v.playsInline=true;v.setAttribute('playsinline','');v.muted=true;v.controls=false;v.onclick=()=>{v.muted=false;v.play().catch(()=>{});};container.appendChild(v);if($(hintId))$(hintId).style.display='none';v.play().catch(()=>{});return v;}if($(hintId))$(hintId).style.display='grid';return null;}
+
+function renderInstagramProfile(){const box=$('igPosts');if(!box)return;box.innerHTML='';['ARNO 官方相关内容','ALD1 团体内容','官方公告'].forEach((t,i)=>{const d=document.createElement('a');d.href='https://www.instagram.com/ald1.official?obrf=MW9uMzlhcm5qcGJzcg==';d.target='_blank';d.rel='noopener';d.style.cssText='aspect-ratio:1;background:linear-gradient(135deg,#242a34,#536579);display:grid;place-items:center;text-align:center;color:#fff;font-size:11px;padding:5px;text-decoration:none';d.textContent=t;box.appendChild(d);});}
+function startIncomingCall(){callStage='incoming';$('igCallerName').textContent=CONFIG.instagram.callerName||CONFIG.contactName;$('igCallAvatar').innerHTML=CONFIG.instagram.avatar?`<img src="${esc(CONFIG.instagram.avatar)}" alt="">`:esc((CONFIG.instagram.callerName||CONFIG.contactName||'?').slice(0,1));showScreen('igIncoming');}
+function stopCallTimers(){if(callTimer)clearInterval(callTimer);callTimer=null;igMessageTimers.forEach(clearTimeout);igMessageTimers=[];}
+function acceptInstagram(){callStage='active';callSeconds=0;stopCallTimers();showScreen('igVideo');$('igVideoName').textContent=CONFIG.instagram.callerName||CONFIG.contactName;setVideo('igMainVideo','igVideoHint',CONFIG.instagram.video);setVideo('selfWindow','selfVideoHint',CONFIG.instagram.selfVideo);$('igTimer').textContent='00:00';callTimer=setInterval(()=>{callSeconds++;$('igTimer').textContent=String(Math.floor(callSeconds/60)).padStart(2,'0')+':'+String(callSeconds%60).padStart(2,'0')},1000);$('igMessages').innerHTML='';CONFIG.instagram.messages.forEach((m,i)=>{const t=setTimeout(()=>showIgMessage(m.text,m.from),Math.max(0,Number(m.delay)||0)*1000);igMessageTimers.push(t)});}
+function showIgMessage(text,from){const box=$('igMessages');const m=document.createElement('div');m.className='igmsg';m.textContent=(from==='我'?'我：':(CONFIG.instagram.callerName||CONFIG.contactName)+'：')+text;box.appendChild(m);while(box.children.length>5)box.firstChild.remove();setTimeout(()=>{m.style.opacity='0';setTimeout(()=>m.remove(),900)},5500);}
+function endInstagram(){stopCallTimers();document.querySelectorAll('#igMainVideo video,#selfWindow video').forEach(v=>{v.pause();v.remove()});callStage='idle';showScreen('homeScreen');}
+$('igAccept').onclick=acceptInstagram;$('igDecline').onclick=()=>endInstagram();$('igHang').onclick=endInstagram;
+$('igSendForm').onsubmit=e=>{e.preventDefault();const input=$('igMessageInput'),text=input.value.trim();if(text){showIgMessage(text,'我');input.value='';}};
+$('flipBtn').onclick=()=>showToast('已切换镜头');$('micBtn').onclick=e=>{e.currentTarget.style.opacity=e.currentTarget.style.opacity==='0.45'?'1':'.45';showToast('麦克风状态已切换')};$('camBtn').onclick=e=>{e.currentTarget.style.opacity=e.currentTarget.style.opacity==='0.45'?'1':'.45';showToast('相机状态已切换')};
+let drag=null;$('selfWindow').addEventListener('pointerdown',e=>{const r=$('selfWindow').getBoundingClientRect();drag={x:e.clientX-r.left,y:e.clientY-r.top};$('selfWindow').setPointerCapture(e.pointerId)});$('selfWindow').addEventListener('pointermove',e=>{if(!drag)return;const p=$('phone').getBoundingClientRect();const w=$('selfWindow');w.style.left=Math.max(0,Math.min(p.width-w.offsetWidth,e.clientX-p.left-drag.x))+'px';w.style.right='auto';w.style.top=Math.max(40,Math.min(p.height-w.offsetHeight,e.clientY-p.top-drag.y))+'px'});$('selfWindow').addEventListener('pointerup',()=>drag=null);
+function renderSongs(){const s=CONFIG.spotify;$('playlistName').textContent=s.playlistName||'🎶';$('playlistCreator').textContent=(s.creator||CONFIG.userName)+' · '+s.songs.length+'곡';const cover=$('spotifyCover');cover.innerHTML=s.cover?`<img src="${esc(s.cover)}" alt="">`:'♫';const box=$('songList');box.innerHTML='';s.songs.forEach((song,i)=>{const row=document.createElement('div');row.className='songrow'+(i===songIndex?' active':'');row.innerHTML=`<div class="songtext"><div class="songtitle">${i===songIndex&&songPlaying?'♫　':''}${esc(song.title)}</div><div class="artist">${esc(song.artist)}</div></div><button class="dotsbtn">•••</button>`;row.onclick=()=>playSong(i);box.appendChild(row)});updateMini();}
+function playSong(i){if(!CONFIG.spotify.songs.length)return;songIndex=(i+CONFIG.spotify.songs.length)%CONFIG.spotify.songs.length;songTime=0;songDuration=180;songPlaying=true;if(songTick)clearInterval(songTick);if(audioEl){audioEl.pause();audioEl=null;}const song=CONFIG.spotify.songs[songIndex];if(song.audio){audioEl=new Audio(song.audio);audioEl.loop=false;audioEl.onloadedmetadata=()=>{songDuration=Number.isFinite(audioEl.duration)?audioEl.duration:180;updatePlayer();};audioEl.onended=nextSong;audioEl.play().catch(()=>showToast('音频无法播放，请检查文件路径或格式'));}else{songPlaying=false;showToast('打开 Spotify 搜索此歌曲');if(song.url)window.open(song.url,'_blank','noopener');}songTick=setInterval(()=>{if(songPlaying){if(audioEl){songTime=audioEl.currentTime||songTime;}else songTime++;if(songTime>=songDuration){nextSong();return;}updatePlayer();}},1000);$('miniPlayer').style.display='flex';renderSongs();updatePlayer();}
+function nextSong(){if(!CONFIG.spotify.songs.length)return;playSong(shuffled?Math.floor(Math.random()*CONFIG.spotify.songs.length):(songIndex+1)%CONFIG.spotify.songs.length);}
+function prevSong(){if(songTime>3){songTime=0;if(audioEl)audioEl.currentTime=0;updatePlayer()}else playSong((songIndex-1+CONFIG.spotify.songs.length)%CONFIG.spotify.songs.length);}
+function toggleSong(){if(songIndex<0){playSong(0);return;}songPlaying=!songPlaying;if(audioEl){songPlaying?audioEl.play().catch(()=>{}):audioEl.pause();}updatePlayer();}
+function fmt(t){t=Math.floor(t||0);return Math.floor(t/60)+':'+String(t%60).padStart(2,'0')}
+function updateMini(){if(songIndex<0)return;const s=CONFIG.spotify.songs[songIndex];$('miniTitle').textContent=s.title;$('miniArtist').textContent=s.artist;$('miniCover').innerHTML=CONFIG.spotify.cover?`<img src="${esc(CONFIG.spotify.cover)}" alt="">`:'♫';}
+function updatePlayer(){if(songIndex<0)return;const s=CONFIG.spotify.songs[songIndex];$('playerTitle').textContent=s.title;$('playerArtist').textContent=s.artist;$('playerCover').innerHTML=CONFIG.spotify.cover?`<img src="${esc(CONFIG.spotify.cover)}" alt="">`:'♫';$('miniToggle').textContent=songPlaying?'Ⅱ':'▶';$('playerToggle').textContent=songPlaying?'Ⅱ':'▶';$('seek').max=songDuration;$('seek').value=songTime;$('elapsed').textContent=fmt(songTime);$('duration').textContent=fmt(songDuration);$('miniProgress').style.width=(songTime/songDuration*100)+'%';}
+$('playAll').onclick=()=>songIndex<0?playSong(0):toggleSong();$('miniToggle').onclick=e=>{e.stopPropagation();toggleSong()};$('miniPlayer').onclick=e=>{if(e.target.id!=='miniToggle'){showScreen('playerPage');updatePlayer()}};$('playerBack').onclick=()=>showScreen('spotifyApp');$('playerToggle').onclick=toggleSong;$('nextSong').onclick=nextSong;$('prevSong').onclick=prevSong;$('seek').oninput=e=>{songTime=Number(e.target.value);if(audioEl)audioEl.currentTime=songTime;updatePlayer()};$('shuffleBtn').onclick=$('playerShuffle').onclick=()=>{shuffled=!shuffled;showToast(shuffled?'随机播放已开启':'随机播放已关闭')};$('repeatBtn').onclick=()=>{repeat=!repeat;showToast(repeat?'循环已开启':'循环已关闭')};$('downloadBtn').onclick=()=>showToast('下载功能为演示界面');$('shareBtn').onclick=()=>showToast('分享功能为演示界面');$('moreBtn').onclick=$('playerMore').onclick=()=>showToast('更多选项');$('playlistName').textContent=CONFIG.spotify.playlistName;
+const origNext=nextSong;nextSong=function(){if(repeat&&songIndex>=0){playSong(songIndex);return;}origNext();};
+let storyModal=null;
+function showStoryDialog(title,options,onChoose){if(storyModal)storyModal.remove();storyModal=document.createElement('div');storyModal.style.cssText='position:absolute;inset:0;z-index:60;background:#0009;display:flex;align-items:flex-end;padding:18px';const card=document.createElement('div');card.style.cssText='width:100%;background:#f7f7f9;color:#151515;border-radius:24px;padding:22px 16px calc(env(safe-area-inset-bottom,0px) + 20px);box-shadow:0 10px 50px #0006';card.innerHTML=`<div style="font-size:17px;font-weight:750;margin-bottom:14px">${esc(title)}</div><div style="font-size:12px;color:#777;margin-bottom:12px">选择你的回复</div>`;options.forEach(o=>{const b=document.createElement('button');b.textContent=o.label;b.style.cssText='display:block;width:100%;text-align:left;padding:14px;margin:7px 0;border-radius:14px;background:#e9e9ee;color:#151515';b.onclick=()=>{storyModal.remove();storyModal=null;onChoose(o)};card.appendChild(b)});const close=document.createElement('button');close.textContent='稍后回复';close.style.cssText='width:100%;padding:12px;background:transparent;color:#777';close.onclick=()=>{storyModal.remove();storyModal=null;};card.appendChild(close);storyModal.appendChild(card);$('phone').appendChild(storyModal);}
+function runStoryQuestion(){if(storyQuestion>=CONFIG.story.questions.length){showToast('你已完成本轮对话');return;}const q=CONFIG.story.questions[storyQuestion];showStoryDialog(q.title,q.options,o=>{if(o.value==='refuse'){storyRefused=true;sendStoryWarning('你拒绝或暂缓归还手机');}else{const replies={yes:'네, 제가 휴대폰을 주웠어요.',explain:'길에서 주웠어요. 걱정하지 마세요.',studio:'연습실 근처에서 잃어버린 것 같아요.',store:'편의점 근처에서 발견했어요.',cafe:'근처 카페에서 만나요.',manager:'매니저님께 전달할게요.',meet:'직접 만나서 돌려드릴게요.',staff:'직원분께 맡겨둘게요.'};CONFIG.chat.push({time:nowTime(),text:replies[o.value]||'조금만 기다려 주세요.'});}storyQuestion++;if(storyQuestion<CONFIG.story.questions.length)setTimeout(runStoryQuestion,450);else showToast('对话已记录到 KakaoTalk');});}
+function sendStoryWarning(reason){CONFIG.chat.push({time:nowTime(),text:'휴대폰을 돌려주세요. 위치가 확인되고 있어요. 바로 연락 바랍니다.'});showStoryDialog('经纪人消息',[
+{label:'马上联系并归还',value:'return'},
+{label:'说明原因并约定交还',value:'explain'},
+{label:'继续不回复（可能收到警告）',value:'ignore'}
+],o=>{if(o.value==='return'||o.value==='explain'){CONFIG.chat.push({time:nowTime(),text:o.value==='return'?'지금 연락드리고 돌려드릴게요.':'상황을 설명하고 돌려드릴 장소를 정할게요.'});showToast('已记录回复');}else{CONFIG.chat.push({time:nowTime(),text:'기기를 찾을 수 있도록 위치 확인을 진행하겠습니다. 즉시 반환해 주세요.'});showToast('收到手机定位警告');}});}
+function incomingStoryCall(){if(incomingCount>=CONFIG.story.maxIncomingCalls){return;}const name=CONFIG.story.incomingCallers[incomingCount%CONFIG.story.incomingCallers.length];incomingCount++;currentCallName=name;callStage='story';showStoryDialog(`${name} 来电　${incomingCount}/${CONFIG.story.maxIncomingCalls}`,[
+{label:'接听并进行文字互动',value:'answer'},
+{label:'拒接',value:'decline'},
+{label:'让电话继续响铃（记为未接）',value:'miss'}
+],o=>{if(o.value==='answer'){showStoryDialog(`${name}：手机是不是被你捡到了？`,[{label:'进入对话并选择回复',value:'talk'},{label:'先说明自己在忙',value:'busy'},{label:'结束通话',value:'end'}],x=>{if(x.value==='talk')runStoryQuestion();else if(x.value==='busy'){CONFIG.chat.push({time:nowTime(),text:'지금은 통화가 어려워요. 문자로 이야기해요.'});showToast('已发送文字回复');}else showToast('通话已结束');});}else{missedIncoming++;callLog.push({name,type:'未接',time:nowTime(),count:'1'});if(missedIncoming>=CONFIG.story.maxIncomingCalls&&CONFIG.story.warningAfterAllMissed)sendStoryWarning('五次来电均未接通');else showToast('已记录未接来电');}if(incomingCount<CONFIG.story.maxIncomingCalls){setTimeout(()=>showToast(`还有 ${CONFIG.story.maxIncomingCalls-incomingCount} 次寻找手机的来电剧情`),800);}});}
+function addStoryShortcut(){const b=document.createElement('button');b.textContent='☎ 模拟一通寻找手机的来电';b.style.cssText='position:absolute;top:calc(env(safe-area-inset-top,0px) + 37px);right:12px;z-index:9;background:#1118;color:white;border:1px solid #fff5;border-radius:18px;padding:7px 10px;font-size:10px';b.onclick=incomingStoryCall;$('homeScreen').appendChild(b);}
+addStoryShortcut();
+const callPrompt=document.createElement('button');callPrompt.textContent='互动剧情';callPrompt.style.cssText='position:absolute;top:calc(env(safe-area-inset-top,0px) + 39px);right:14px;z-index:5;background:#ffffff33;color:#fff;padding:7px 10px;border-radius:14px;font-size:11px';callPrompt.onclick=()=>showStoryDialog('手机失主正在寻找手机',[
+{label:'接听下一通寻找手机的电话',value:'call'},
+{label:'查看归还手机的回复选项',value:'question'},
+{label:'发送归还手机的短信',value:'sms'}
+],o=>{if(o.value==='call')incomingStoryCall();if(o.value==='question'){storyQuestion=0;runStoryQuestion()}if(o.value==='sms')sendStoryWarning('主动发送归还短信')});$('homeScreen').appendChild(callPrompt);
+</script>
+</body>
+</html>
